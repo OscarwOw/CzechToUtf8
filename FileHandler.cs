@@ -33,10 +33,8 @@ namespace CzechToUtf8
                     lineNumber++;
                     long lineSize = encoding.GetByteCount(line) + encoding.GetByteCount(Environment.NewLine);
                     processedSize += lineSize;
-                    if (lineNumber % 15000 == 0)
-                    { 
-                        Console.WriteLine($"Reading: Processed {lineNumber} lines");
-                    }
+                    
+                    
                     lines.Add(DiacriticRemover.RemoveDiacritics(line));
                 }
             }

@@ -11,7 +11,7 @@ class Program
         string inputFilePath = "CZ.txt";
         string outputFilePath = "output.txt";
         Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-        Encoding encoding = Encoding.GetEncoding("windows-1252");
+        Encoding encoding = Encoding.GetEncoding("windows-1250");
 
 
         if (!File.Exists(inputFilePath))
@@ -19,8 +19,9 @@ class Program
             Console.WriteLine($"Input file does not exist: {inputFilePath}");
             return;
         }
-        var lines = FileHandler.ReadAllLines(inputFilePath, encoding);
+        IEnumerable<string> lines = FileHandler.ReadAllLines(inputFilePath, encoding);
 
+        
         //var lines = ReadAllLines(inputFilePath, originalEncoding);
         FileHandler.WriteAllLines(outputFilePath, lines, encoding);
 
